@@ -1,13 +1,14 @@
 
-const externalApi =
-  "https://www.themealdb.com/api/json/v1/1/search.php?s=egg";
-
-
 var express = require('express');
 var router = express.Router();
 var request = require('request');
 
 module.exports.allData= function (req,res){
+  var name=req.params.name;
+  console.log(name);
+  const externalApi =
+  `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
+
   request({
     uri: externalApi,
     query: "mealDb",
